@@ -50,12 +50,15 @@ public class CssSelector {
         btnImpressive.click();
         pause(2);
 
-        WebElement btnButton = driver.findElement(By.id("item-4"));
+    //    WebElement btnButton = driver.findElement(By.id("item-4"));
+        WebElement btnButton = driver.findElement(By.cssSelector("li:nth-child(5)"));
         btnButton.click();
     //  WebElement btnDoubleClick = driver.findElement(By.id("doubleClickBtn"));
         WebElement btnDoubleClick  = driver.findElement(By.cssSelector("#doubleClickBtn"));
         btnDoubleClick.click();
         pause(2);
+
+        driver.navigate().back();
     }
 
     public void pause(int time){
