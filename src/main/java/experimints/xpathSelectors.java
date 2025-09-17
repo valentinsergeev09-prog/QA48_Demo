@@ -14,7 +14,7 @@ public class xpathSelectors {
         driver = new ChromeDriver();
     }
 
-    @AfterMethod
+    @AfterMethod (enabled = false)
     public void afterMethod() {
         driver.quit();
     }
@@ -66,15 +66,22 @@ public class xpathSelectors {
         pause(1);
 
         WebElement inputeEmail = driver.findElement(By.xpath("//input[@type='email']"));
-        pause(1);
+
         inputeEmail.sendKeys("monkey@gmail.com");
-        pause(1);
+
 
         WebElement textareaCurrent = driver.findElement(By.xpath("//*[@id='currentAddress']"));
-        pause(1);
-        textareaCurrent.sendKeys("Monkey Street 123");
-        pause(2);
 
+        textareaCurrent.sendKeys("Monkey Street 123");
+
+        WebElement textateaPerAdd =  driver.findElement(By.id("permanentAddress"));
+        textateaPerAdd.sendKeys("Monkey avenue 5");
+        WebElement btnSubmit = driver.findElement(By.xpath("//button[text()='Submit']"));
+        btnSubmit.click();
+
+        WebElement output = driver.findElement(By.xpath("//div[@id='output']"));
+        System.out.println(output.getText());
+        pause(1);
 
     }
 
